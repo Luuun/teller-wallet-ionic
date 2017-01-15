@@ -12,7 +12,7 @@ angular.module('generic-client.controllers.receive', [])
                     $scope.myAddress = JSON.parse($window.localStorage.myAddress);
                 }
 
-                $scope.account = res.data.data.details.reference             
+                $scope.account = res.data.details.reference             
                 var myAddress = 'https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=stellar:' + $scope.account + '&choe=UTF-8';
                 $scope.myAddress = myAddress;
             } else {

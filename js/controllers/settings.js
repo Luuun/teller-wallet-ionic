@@ -158,11 +158,11 @@ angular.module('generic-client.controllers.settings', [])
         'use strict';
 
         $scope.refreshData = function () {
-            var getPersonalDetails = PersonalDetails.get();
+            var getPersonalDetails = PersonalDetails.getUsername();
 
             getPersonalDetails.success(
                 function (res) {
-                    $scope.data = {"username": res.data.username};
+                    $scope.data = {"username": res.details.memo};
                 }
             );
 
