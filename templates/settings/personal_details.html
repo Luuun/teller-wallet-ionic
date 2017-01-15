@@ -3,6 +3,12 @@
         <form name="personalDetailsForm" method="post" novalidate>
             <ion-content class="container-body">
                 <div class="list">
+                    <input ng-model="data.username" name="username" type="hidden" value="{{ data.username }}">
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">First name</span>
+                        <input ng-model="data.first_name" name="first_name" type="text" placeholder="Your name"
+                               value="{{ data.first_name }}">
+                    </label>
                     <label class="item item-input item-stacked-label">
                         <span class="input-label" translate="FIRST_NAME"></span>
                         <input ng-model="data.first_name" name="first_name" type="text" placeholder="{{'FIRST_NAME_PLACEHOLDER' | translate}}"

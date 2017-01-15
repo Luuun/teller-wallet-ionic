@@ -1,7 +1,7 @@
 /*global Firebase, console, angular */
 angular.module('generic-client.services.settings', [])
 
-    .service('PersonalDetails', function ($http, API) {
+    .service('PersonalDetails', function ($http, API, CRYPTO_API) {
         'use strict';
         var self = this;
 
@@ -18,6 +18,16 @@ angular.module('generic-client.services.settings', [])
                 language: language
             });
         };
+
+        self.createUsername = function (username) {
+            return $http.post(CRYPTO_API + '/user/username/set/', {
+                username: username
+            });
+        }; 
+
+        self.getUsername = function () {
+            return $http.get(CRYPTO_API + '/user/account/');
+        };       
     })
 
     .service('Languages', function () {

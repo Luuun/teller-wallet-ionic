@@ -5,19 +5,21 @@ angular.module('generic-client.controllers.receive', [])
         $scope.data = {};
     })
 
-    .controller('ReceiveCtrl', function ($scope, $window, User) {
-        User.getInfo().then(function (res) {
+    .controller('ReceiveCtrl', function ($scope, $window, $state, PersonalDetails) {
+        PersonalDetails.getUsername().then(function (res) {
+            if (res.status === 200) {
+                if ($window.localStorage.myAddress) {
+                    $scope.myAddress = JSON.parse($window.localStorage.myAddress);
+                }
 
-            if ($window.localStorage.myAddress) {
-                $scope.myAddress = JSON.parse($window.localStorage.myAddress);
+                $scope.account = res.data.data.details.reference             
+                var myAddress = 'https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=stellar:' + $scope.account + '&choe=UTF-8';
+                $scope.myAddress = myAddress;
+            } else {
+                $state.go('app.username');
             }
-            $scope.refreshData();
-            $scope.email = res.data.data.email;
-        });
-
-        $scope.refreshData = function () {
-            var myAddress = 'https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=' + $scope.email + '&choe=UTF-8';
-            $scope.myAddress = myAddress;
-            $window.localStorage.setItem('myAddress', JSON.stringify(myAddress));
-        };
+        }).catch(function (error) {
+            $ionicPopup.alert({title: 'Authentication failed', template: error.message});
+            $ionicLoading.hide();
+        });        
     });

@@ -1,0 +1,25 @@
+<ion-view view-title="Username">
+    <div ng-controller="UsernameCtrl">
+        <form name="usernameForm" method="post" novalidate>
+            <ion-content class="container-body">
+                <div class="list">
+                    <label class="item item-input item-stacked-label">
+                        <span class="input-label">Username</span>
+                        <input ng-model="data.username" name="username" type="text" placeholder="Set your username"
+                               value="{{ data.username }}">
+
+                    </label>
+                </div>
+            </ion-content>
+
+            <!-- Footer bar hack to get layout right -->
+            <ion-footer-bar class="high-footer bar-dark">
+            </ion-footer-bar>
+
+            <button keyboard-attach class="high-footer bar bar-footer" ng-click="submit(usernameForm)"
+                    linked="clickMe">
+                <h1 class="title">Save</h1>
+            </button>
+        </form>
+    </div>
+</ion-view>

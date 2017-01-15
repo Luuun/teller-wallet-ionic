@@ -154,6 +154,47 @@ angular.module('generic-client.controllers.settings', [])
         $scope.refreshData();
     })
 
+    .controller('UsernameCtrl', function ($scope, $ionicPopup, $ionicModal, $state, $ionicLoading, PersonalDetails, Countries) {
+        'use strict';
+
+        $scope.refreshData = function () {
+            var getPersonalDetails = PersonalDetails.get();
+
+            getPersonalDetails.success(
+                function (res) {
+                    $scope.data = {"username": res.data.username};
+                }
+            );
+
+            getPersonalDetails.catch(function (error) {
+
+            });
+        };
+
+        $scope.submit = function (form) {
+            $ionicLoading.show({
+                template: 'Saving Username...'
+            });
+
+            if (form.$valid) {
+                PersonalDetails.createUsername(form.username.$viewValue).then(function (res) {
+                    if (res.status === 200) {
+                        $ionicLoading.hide();
+                    } else {
+                        $ionicLoading.hide();
+                        $ionicPopup.alert({title: "Error", template: res.message});
+                    }
+                }).catch(function (error) {
+                    $ionicPopup.alert({title: 'Authentication failed', template: error.message});
+                    $ionicLoading.hide();
+                });
+
+                $state.go('app.username', {});
+            }
+        };
+        $scope.refreshData();
+    })
+
     .controller('AddressCtrl', function ($scope, $ionicPopup, $ionicModal, $state, $ionicLoading, $translate, Address) {
         'use strict';
 

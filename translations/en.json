@@ -163,6 +163,8 @@
   "WITHDRAW_CONFIRM_MESSAGE": "You are about to withdraw {{ currency }} {{ amount }}.",
   "WITHDRAW_SUCCESS_MESSAGE": "You have successfully made a withdrawal of {{ currency }}{{ amount }}.",
 
+  "RECEIVE": "Receive",
+
   "CONVERT": "Convert",
 
   "TELLER": "Teller",

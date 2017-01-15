@@ -39,6 +39,8 @@ angular.module('generic-client', ['ionic',
     .constant('COMPANY_API', 'https://rehive.com/services/teller')
     //.constant('CONVERSION_API', 'http://localhost:8080/services/conversion')
     .constant('CONVERSION_API', 'https://rehive.com/services/conversion')
+    //.constant('CONVERSION_API', 'http://localhost:8080/services/conversion')
+    .constant('CRYPTO_API', 'https://rehive.com/services/crypto')
     //.constant('COMPANY', 'test_company_1')
     .constant('COMPANY', 'luuun_test')
 
@@ -552,6 +554,17 @@ angular.module('generic-client', ['ionic',
                 }
             })
 
+            // Receive
+            .state('app.receive', {
+                url: '/receive',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/receive/index.html',
+                        controller: 'ReceiveCtrl'
+                    }
+                }
+            })
+
             // Accounts
             .state('app.currency_accounts', {
                 url: '/currency_accounts',
@@ -814,6 +827,19 @@ angular.module('generic-client', ['ionic',
                 params: {
                     first_name: null,
                     last_name: null
+                }
+            })
+
+            .state('app.username', {
+                url: '/username',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/settings/username.html',
+                        controller: 'UsernameCtrl'
+                    }
+                },
+                params: {
+                    username: null
                 }
             })
 
