@@ -77,7 +77,7 @@
   "PROMOTION_CODE_PLACEHOLDER": "Promotion code",
   "PROMOTION_CODE_REQUIRED_MESSAGE": "Please enter a promotion code",
   "AMOUNT": "Amount",
-  "AMOUNT_PLACEHOLDER": "Amount",
+  "AMOUNT_PLACEHOLDER": "e.g. 1000.00",
   "AMOUNT_REQUIRED_MESSAGE": "Please enter an amount.",
   "AMOUNT_VALID_MESSAGE": "Please enter a valid amount.",
   "FEE": "Fee",
@@ -155,6 +155,8 @@
   "DEPOSIT_INSTRUCTIONS": "Fund your account by transferring {{ currency_code }} to the unique reference number below.",
   "DEPOSIT_NO_INSTRUCTIONS": "No deposit instructions have been provided.",
   "BANK": "Bank",
+
+  "BUY": "Buy Lumens",
 
   "WITHDRAW": "Withdraw",
   "SELECT_BANK_ACCOUNT": "Select bank account",
@@ -294,6 +296,15 @@
 
   "WITHDRAW_AMOUNT_TO_EXCHANGE": "Amount to exchange",
   "WITHDRAW_CURRENCY_TO_RECEIVE": "Currency to receive",
-  "WITHDRAW_AMOUNT_TO_RECEIVE": "Amount to receive"  
+  "WITHDRAW_AMOUNT_TO_RECEIVE": "Amount to receive",
+
+  "BUY_DESCRIPTION": "Set price and currency",
+  "BUY_CURRENCY": "Select currency",
+  "BUY_PRICE": "What's your price?",
+  "BUY_AMOUNT": "How many lumens would you like to buy?",
+
+  "SELL_CURRENCY": "Select currency",
+  "SELL_PRICE": "What's your price?",
+  "SELL_AMOUNT": "How many lumens would you like to sell?"
 
 }

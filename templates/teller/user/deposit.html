@@ -1,13 +1,31 @@
-<ion-view view-title="{{'DEPOSIT' | translate}}">
+<ion-view view-title="{{'BUY' | translate}}">
     <ion-nav-buttons side="right">
         <button class="button button-clear" ng-click="close()" translate="CLOSE">
         </button>
     </ion-nav-buttons>
     <form name="depositForm" method="post" novalidate>
         <ion-content class="container-body">
-            <div class="list">
+            <div class="list-default">
+
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label" translate="BUY_AMOUNT"></span>
+                    <input ng-model="data.amount" name="amount" type="number"
+                           placeholder="{{'AMOUNT_PLACEHOLDER' | translate}}"
+                           required>
+
+                    <div ng-messages="depositForm.amount.$error" role="alert"
+                         ng-show='depositForm.$submitted || depositForm.amount.$dirty'>
+                        <div ng-message="required" class="form-error" translate="AMOUNT_REQUIRED_MESSAGE"></div>
+                        <div ng-message="number" class="form-error" translate="AMOUNT_VALID_MESSAGE"></div>
+                    </div>
+                </label>
+
+
+                <div class="item item-banner" translate="BUY_DESCRIPTION"></div>
+
+
                 <label class="item item-input item-select">
-                    <span class="input-label" translate="DEPOSIT_CURRENCY_TO_EXCHANGE"></span>
+                    <span class="input-label" translate="BUY_CURRENCY"></span>
                     <select ng-model="data.from_currency" name="from_currency" required>
                         <option value="USD" selected>USD</option>
                         <option value="SGD">SGD</option>
@@ -15,34 +33,22 @@
                         <option value="EUR">EUR</option>
                         <option value="CNY">CNY</option>
                         <option value="ZAR">ZAR</option>
-                    </select>                  
-                </label> 
-                <label class="item item-input">
-                    <div ng-messages="depositForm.from_currency.$error" role="alert"
-                         ng-show='depositForm.$submitted || depositForm.from_currency.$dirty'>
-                        <div ng-message="required" class="form-error" translate="CURRENCY_REQUIRED_MESSAGE"></div>
-                    </div>                    
-                </label> 
+                    </select>
+                </label>
+
                 <label class="item item-input item-stacked-label">
-                    <span class="input-label" translate="DEPOSIT_AMOUNT_TO_EXCHANGE"></span>
-                    <input ng-model="data.from_amount" name="from_amount" type="number" placeholder="{{'AMOUNT_PLACEHOLDER' | translate}}"
+                    <span class="input-label" translate="BUY_PRICE"></span>
+                    <input ng-model="data.from_amount" name="from_amount" type="number"
+                           placeholder="{{'AMOUNT_PLACEHOLDER' | translate}}"
                            required>
+
                     <div ng-messages="depositForm.from_amount.$error" role="alert"
                          ng-show='depositForm.$submitted || depositForm.from_amount.$dirty'>
                         <div ng-message="required" class="form-error" translate="AMOUNT_REQUIRED_MESSAGE"></div>
                         <div ng-message="number" class="form-error" translate="AMOUNT_VALID_MESSAGE"></div>
                     </div>
                 </label>
-                <label class="item item-input item-stacked-label">
-                    <span class="input-label" translate="DEPOSIT_AMOUNT_TO_RECEIVE"></span>
-                    <input ng-model="data.amount" name="amount" type="number" placeholder="{{'AMOUNT_PLACEHOLDER' | translate}}"
-                           required>
-                    <div ng-messages="depositForm.amount.$error" role="alert"
-                         ng-show='depositForm.$submitted || depositForm.amount.$dirty'>
-                        <div ng-message="required" class="form-error" translate="AMOUNT_REQUIRED_MESSAGE"></div>
-                        <div ng-message="number" class="form-error" translate="AMOUNT_VALID_MESSAGE"></div>
-                    </div>
-                </label>
+
             </div>
         </ion-content>
 
