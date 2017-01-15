@@ -40,7 +40,7 @@ angular.module('generic-client', ['ionic',
     //.constant('CONVERSION_API', 'http://localhost:8080/services/conversion')
     .constant('CONVERSION_API', 'https://rehive.com/services/conversion')
     //.constant('COMPANY', 'test_company_1')
-    .constant('COMPANY', 'test_company_1')
+    .constant('COMPANY', 'luuun_test')
 
     .constant('REFRESH_INTERVAL', 3000)
 
