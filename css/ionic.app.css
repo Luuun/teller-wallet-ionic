@@ -9789,58 +9789,58 @@ a.button {
 
 .button {
   border-color: transparent;
-  background-color: #3D8AB8;
+  background-color: #01C68B;
   color: #fff; }
   .button:hover {
     color: #fff;
     text-decoration: none; }
   .button.active, .button.activated {
-    background-color: #377ca5; }
+    background-color: #01ad79; }
   .button.button-clear, .button.button-icon {
     border-color: transparent;
     background: none;
     box-shadow: none;
-    color: #3D8AB8; }
+    color: #01C68B; }
   .button.button-positive {
-    border-color: #3D8AB8;
-    background: #3D8AB8;
+    border-color: #01C68B;
+    background: #01C68B;
     color: #fff; }
     .button.button-positive.active, .button.button-positive.activated {
-      background-color: #377ca5;
+      background-color: #01ad79;
       box-shadow: none; }
   .button.button-outline {
-    border-color: #3D8AB8;
+    border-color: #01C68B;
     background: transparent;
-    color: #3D8AB8; }
+    color: #01C68B; }
     .button.button-outline.active, .button.button-outline.activated {
-      background-color: #3D8AB8;
+      background-color: #01C68B;
       box-shadow: none;
       color: #fff; }
   .button.search-button {
     position: absolute;
     right: 20px;
     top: 15px;
-    color: #377ca5; }
+    color: #01ad79; }
 
 .button-call {
-  border-color: #3D8AB8;
+  border-color: #01C68B;
   background-color: transparent;
-  color: #3D8AB8;
+  color: #01C68B;
   border-radius: 0; }
   .button-call:hover {
-    color: #3D8AB8;
+    color: #01C68B;
     text-decoration: none; }
   .button-call.active, .button-call.activated {
-    background-color: #377ca5;
+    background-color: #01ad79;
     color: #fff; }
 
 .bar {
-  border-color: #3d8ab8;
-  background-color: #3D8AB8;
+  border-color: #01c68b;
+  background-color: #01C68B;
   background-image: none;
   color: #fff; }
   .bar.activated {
-    background-color: #377ca5; }
+    background-color: #01ad79; }
   .bar .title {
     color: #fff; }
   .bar.cancel {
@@ -9859,10 +9859,10 @@ a.button {
       color: #fff; }
   .bar .button {
     border-color: transparent;
-    background-color: #377ca5;
+    background-color: #01ad79;
     color: #fff; }
     .bar .button.active, .bar .button.button.activated {
-      background-color: #377ca5; }
+      background-color: #01ad79; }
     .bar .button.button-clear {
       border-color: transparent;
       background: none;
@@ -9879,7 +9879,7 @@ a.button {
       text-decoration: none; }
 
 .app-side-menu {
-  background-color: #2070A0;
+  background-color: #00B877;
   color: #fff; }
   .app-side-menu h1 {
     font-size: 16px;
@@ -9900,15 +9900,15 @@ a.button {
   position: relative; }
   .app-side-menu-list .item {
     border-color: transparent;
-    background-color: #2070A0; }
+    background-color: #00B877; }
     .app-side-menu-list .item:last-of-type {
       border-bottom: none; }
     .app-side-menu-list .item a {
       color: #fff;
-      background-color: #2070A0;
+      background-color: #00B877;
       padding: 12px; }
       .app-side-menu-list .item a.activated {
-        background-color: #2070A0;
+        background-color: #00B877;
         border-color: transparent; }
 
 .list-default {
@@ -9977,7 +9977,7 @@ input.ng-invalid, input.ng-dirty {
   width: 100%;
   padding-top: 8px;
   padding-bottom: 0;
-  background-color: #3D8AB8;
+  background-color: #01C68B;
   position: absolute;
   text-align: center; }
   .custom-header h1 {
@@ -10007,7 +10007,7 @@ input.ng-invalid, input.ng-dirty {
   margin-top: 63px; }
 
 .custom-header-margin {
-  background-color: #3D8AB8;
+  background-color: #01C68B;
   margin-top: 100px !important; }
 
 .custom-body {
