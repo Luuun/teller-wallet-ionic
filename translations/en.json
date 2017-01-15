@@ -129,6 +129,7 @@
   "PIN_CODE": "Payment code",
   "PIN_PLACEHOLDER": "Unique transaction code",
   "PIN_REQUIRED_MESSAGE": "Please enter a code.",
+  "CURRENCY_REQUIRED_MESSAGE": "Currency is required",
 
   "LOGIN": "Login",
   "FORGOT_PASSWORD": "Forgot password?",

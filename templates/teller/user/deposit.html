@@ -7,15 +7,21 @@
         <ion-content class="container-body">
             <div class="list">
                 <label class="item item-input item-select">
-                    <span class="input-label" translate="DEPOSIT_CURRENCY_TO_EXCHANGE">asad</span>
+                    <span class="input-label" translate="DEPOSIT_CURRENCY_TO_EXCHANGE"></span>
                     <select ng-model="data.from_currency" name="from_currency" required>
-                        <option  value="USD">USD</option>
+                        <option value="USD" selected>USD</option>
                         <option value="SGD">SGD</option>
                         <option value="IDR">IDR</option>
                         <option value="EUR">EUR</option>
                         <option value="CNY">CNY</option>
                         <option value="ZAR">ZAR</option>
-                    </select>
+                    </select>                  
+                </label> 
+                <label class="item item-input item-select">
+                    <div ng-messages="depositForm.from_currency.$error" role="alert"
+                         ng-show='depositForm.$submitted || depositForm.from_currency.$dirty'>
+                        <div ng-message="required" class="form-error" translate="CURRENCY_REQUIRED_MESSAGE"></div>
+                    </div>                    
                 </label> 
                 <label class="item item-input item-stacked-label">
                     <span class="input-label" translate="DEPOSIT_AMOUNT_TO_EXCHANGE"></span>

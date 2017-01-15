@@ -17,6 +17,12 @@
                         <option value="ZAR">ZAR</option>
                     </select>
                 </label> 
+                <label class="item item-input item-select">
+                    <div ng-messages="depositForm.to_currency.$error" role="alert"
+                         ng-show='depositForm.$submitted || depositForm.to_currency.$dirty'>
+                        <div ng-message="required" class="form-error" translate="CURRENCY_REQUIRED_MESSAGE"></div>
+                    </div>                    
+                </label>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label" translate="WITHDRAW_AMOUNT_TO_RECEIVE"></span>
                     <input ng-model="data.to_amount" name="to_amount" type="number" placeholder="{{'AMOUNT_PLACEHOLDER' | translate}}"
