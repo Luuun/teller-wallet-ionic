@@ -12,8 +12,8 @@ angular.module('generic-client.controllers.receive', [])
                     $scope.myAddress = JSON.parse($window.localStorage.myAddress);
                 }
 
-                $scope.account = res.data.details.reference             
-                var myAddress = 'https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=stellar:' + $scope.account + '&choe=UTF-8';
+                $scope.account = res.data;
+                var myAddress = 'https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=stellar:' + $scope.account.reference + '&choe=UTF-8';
                 $scope.myAddress = myAddress;
             } else {
                 $state.go('app.username');
