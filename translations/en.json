@@ -137,7 +137,7 @@
   "RESET_EMAIL": "Reset email",
 
   "HOME": "Home",
-  "WELCOME_TEXT": "Welcome to Rehive",
+  "WELCOME_TEXT": "Welcome to Luuun",
   "TRANSACTIONS_TEXT": "Please verify your email address to redeem any unclaimed transactions. Pull to refresh your balance.",
   "TRANSACTION_FEE": "You've earned {{ currency }} {{ fee }}",
   "TRANSACTION_TELLER_FEE": "{{ currency }} {{ fee }} teller fee",
