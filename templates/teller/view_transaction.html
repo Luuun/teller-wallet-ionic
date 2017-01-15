@@ -10,8 +10,12 @@
                     <div class="col col-100">
                         <div class="row center">
                             <h4>
-                                <b translate="TELLER_OFFER_TRANSACTION"
-                                    translate-values="{ currency: currency.symbol, fee: transaction.fee, amount: transaction.amount, tx_type: transaction.tx_type}"></b>
+                                <b ng-if="transaction.metadata.from_currency"
+                                    translate="DEPOSIT_TELLER_OFFER_TRANSACTION"
+                                    translate-values="{ currency: currency.symbol, fee: transaction.fee, currency: currency.symbol, amount: transaction.amount, tx_type: transaction.tx_type, from_currency: transaction.metadata.from_currency, from_amount: transaction.metadata.from_amount}"></b>
+                                <b ng-if="transaction.metadata.to_currency"
+                                    translate="WITHDRAW_TELLER_OFFER_TRANSACTION"
+                                    translate-values="{ currency: currency.symbol, fee: transaction.fee, currency: currency.symbol, amount: transaction.amount, tx_type: transaction.tx_type, to_currency: transaction.metadata.to_currency, to_amount: transaction.metadata.to_amount}"></b>
                             </h4>
                         </div>
                     </div>
@@ -68,13 +72,6 @@
                     </span>
                     </div>
                     <div class="row">
-                    <span class="col-50 align-left" translate="CONVENIENCE_FEE">
-                    </span>
-                    <span class="col-50 align-right">
-                        {{ currency.symbol }} {{ transaction.fee }}
-                    </span>
-                    </div>
-                    <div class="row">
                     <span class="col-50 align-left" translate="TOTAL">
                     </span>
                     <span class="col-50 align-right">
@@ -89,10 +86,16 @@
                     </span>
                     </div>
                     <div class="row">
-                    <span class="col-100 align-left"
-                        translate="TELLER_OFFER_TRANSACTION"
-                        translate-values="{ currency: currency.symbol, fee: transaction.fee, amount: transaction.amount, tx_type: transaction.tx_type}">
-                    </span>
+                        <span ng-if="transaction.metadata.from_currency"
+                            class="col-100 align-left"
+                            translate="DEPOSIT_TELLER_OFFER_TRANSACTION"
+                            translate-values="{ currency: currency.symbol, fee: transaction.fee, currency: currency.symbol, amount: transaction.amount, tx_type: transaction.tx_type, from_currency: transaction.metadata.from_currency, from_amount: transaction.metadata.from_amount}">
+                        </span>
+                        <span ng-if="transaction.metadata.to_currency"
+                            class="col-100 align-left"
+                            translate="WITHDRAW_TELLER_OFFER_TRANSACTION"
+                            translate-values="{ currency: currency.symbol, fee: transaction.fee, currency: currency.symbol, amount: transaction.amount, tx_type: transaction.tx_type, to_currency: transaction.metadata.to_currency, to_amount: transaction.metadata.to_amount}">
+                        </span>
                     </div>
                 </div>
             </div>

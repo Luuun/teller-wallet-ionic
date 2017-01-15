@@ -94,13 +94,6 @@
                     </span>
                     </div>
                     <div class="row">
-                    <span class="col-50 align-left" translate="CONVENIENCE_FEE">
-                    </span>
-                    <span class="col-50 align-right">
-                        {{ currency.symbol }} {{ offer.transaction.fee }}
-                    </span>
-                    </div>
-                    <div class="row">
                     <span class="col-50 align-left" translate="TOTAL">
                     </span>
                     <span class="col-50 align-right">
@@ -115,10 +108,16 @@
                     </span>
                     </div>
                     <div class="row">
-                    <span class="col-100 align-left"
-                        translate="SUMMARY_DESCRIPTION"
-                        translate-values="{ currency: currency.symbol, total: offer.transaction.total, amount: offer.transaction.amount, tx_type: offer.transaction.tx_type }">
-                    </span>
+                        <span ng-if="offer.transaction.metadata.from_currency"
+                            class="col-100 align-left"
+                            translate="DEPOSIT_SUMMARY_DESCRIPTION"
+                            translate-values="{ currency: currency.symbol, fee: offer.transaction.fee, currency: currency.symbol, amount: offer.transaction.amount, tx_type: offer.transaction.tx_type, from_currency: offer.transaction.metadata.from_currency, from_amount: offer.transaction.metadata.from_amount}">
+                        </span>
+                        <span ng-if="offer.transaction.metadata.to_currency"
+                            class="col-100 align-left"
+                            translate="WITHDRAW_SUMMARY_DESCRIPTION"
+                            translate-values="{ currency: currency.symbol, fee: offer.transaction.fee, currency: currency.symbol, amount: offer.transaction.amount, tx_type: offer.transaction.tx_type, to_currency: offer.transaction.metadata.to_currency, to_amount: offer.transaction.metadata.to_amount}">
+                        </span>
                     </div>
                 </div>
             </div>

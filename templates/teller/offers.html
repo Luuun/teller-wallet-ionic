@@ -29,8 +29,12 @@
 
                             <div class="row default-top">
                                 <div class="col align-left">
-                                    <h2 translate="TELLER_OFFER_TRANSACTION"
-                                        translate-values="{ currency: currency.symbol, fee: offer.transaction.fee, amount: offer.transaction.amount, tx_type: offer.transaction.tx_type}"></h2>
+                                    <h2 ng-if="offer.transaction.metadata.from_currency"
+                                        translate="DEPOSIT_TELLER_OFFER_TRANSACTION"
+                                        translate-values="{ currency: currency.symbol, fee: offer.transaction.fee, currency: currency.symbol, amount: offer.transaction.amount, tx_type: offer.transaction.tx_type, from_currency: offer.transaction.metadata.from_currency, from_amount: offer.transaction.metadata.from_amount}"></h2>
+                                    <h2 ng-if="offer.transaction.metadata.to_currency"
+                                        translate="WITHDRAW_TELLER_OFFER_TRANSACTION"
+                                        translate-values="{ currency: currency.symbol, fee: offer.transaction.fee, currency: currency.symbol, amount: offer.transaction.amount, tx_type: offer.transaction.tx_type, to_currency: offer.transaction.metadata.to_currency, to_amount: offer.transaction.metadata.to_amount}"></h2>
                                     <!--<h4>Expected arrival is 10 minutes.</h4>-->
                                 </div>
                             </div>
@@ -62,8 +66,12 @@
 
                             <div class="row default-top">
                                 <div class="col align-left">
-                                    <h2 translate="TELLER_OFFER_TRANSACTION"
-                                        translate-values="{ currency: currency.symbol, fee: offer.transaction.fee, amount: offer.transaction.amount, tx_type: offer.transaction.tx_type}"></h2>
+                                    <h2 ng-if="offer.transaction.metadata.from_currency"
+                                        translate="DEPOSIT_TELLER_OFFER_TRANSACTION"
+                                        translate-values="{ currency: currency.symbol, fee: offer.transaction.fee, currency: currency.symbol, amount: offer.transaction.amount, tx_type: offer.transaction.tx_type, from_currency: offer.transaction.metadata.from_currency, from_amount: offer.transaction.metadata.from_amount}"></h2>
+                                    <h2 ng-if="offer.transaction.metadata.to_currency"
+                                        translate="WITHDRAW_TELLER_OFFER_TRANSACTION"
+                                        translate-values="{ currency: currency.symbol, fee: offer.transaction.fee, currency: currency.symbol, amount: offer.transaction.amount, tx_type: offer.transaction.tx_type, to_currency: offer.transaction.metadata.to_currency, to_amount: offer.transaction.metadata.to_amount}"></h2>
                                     <!--<h4>Expected arrival is 10 minutes.</h4>-->
                                 </div>
                             </div>
