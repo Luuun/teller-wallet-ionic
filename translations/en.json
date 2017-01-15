@@ -276,6 +276,14 @@
   "LOADER_DEACTIVATING": "Deactivating...",
   "LOADER_ADDING": "Adding...",
   "LOADER_CHANGING_PREFERENCES": "Changing preferences...",
-  "LOADER_SWITCHING_ACCOUNT": "Switching accounts..."
+  "LOADER_SWITCHING_ACCOUNT": "Switching accounts...",
+
+  "DEPOSIT_CURRENCY_TO_EXCHANGE": "Currency to exchange",
+  "DEPOSIT_AMOUNT_TO_EXCHANGE": "Amount to exchange",
+  "DEPOSIT_AMOUNT_TO_RECEIVE": "Amount to receive",
+
+  "WITHDRAW_AMOUNT_TO_EXCHANGE": "Amount to exchange",
+  "WITHDRAW_CURRENCY_TO_RECEIVE": "Currency to receive",
+  "WITHDRAW_AMOUNT_TO_RECEIVE": "Amount to receive"  
 
 }

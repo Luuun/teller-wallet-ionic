@@ -51,19 +51,19 @@ angular.module('generic-client.services.tellers', [])
             });
         };
 
-        self.deposit = function(amount, fee, currency) {
+        self.deposit = function(amount, currency, metadata) {
             return $http.post(COMPANY_API + '/user/transactions/deposit/', {
                 amount: amount,
-                fee: fee,
-                currency: currency
+                currency: currency,
+                metadata: metadata
             });
         };
 
-        self.withdraw = function(amount, fee, currency) {
+        self.withdraw = function(amount, currency, metadata) {
             return $http.post(COMPANY_API + '/user/transactions/withdraw/', {
                 amount: amount,
-                fee: fee,
-                currency: currency
+                currency: currency,
+                metadata: metadata
             });
         };
 

@@ -6,23 +6,35 @@
     <form name="depositForm" method="post" novalidate>
         <ion-content class="container-body">
             <div class="list">
+                <label class="item item-input item-select">
+                    <span class="input-label" translate="DEPOSIT_CURRENCY_TO_EXCHANGE">asad</span>
+                    <select ng-model="data.from_currency" name="from_currency" required>
+                        <option  value="USD">USD</option>
+                        <option value="SGD">SGD</option>
+                        <option value="IDR">IDR</option>
+                        <option value="EUR">EUR</option>
+                        <option value="CNY">CNY</option>
+                        <option value="ZAR">ZAR</option>
+                    </select>
+                </label> 
                 <label class="item item-input item-stacked-label">
-                    <span class="input-label" translate="AMOUNT"></span>
+                    <span class="input-label" translate="DEPOSIT_AMOUNT_TO_EXCHANGE"></span>
+                    <input ng-model="data.from_amount" name="from_amount" type="number" placeholder="{{'AMOUNT_PLACEHOLDER' | translate}}"
+                           required>
+                    <div ng-messages="depositForm.from_amount.$error" role="alert"
+                         ng-show='depositForm.$submitted || depositForm.from_amount.$dirty'>
+                        <div ng-message="required" class="form-error" translate="AMOUNT_REQUIRED_MESSAGE"></div>
+                        <div ng-message="number" class="form-error" translate="AMOUNT_VALID_MESSAGE"></div>
+                    </div>
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label" translate="DEPOSIT_AMOUNT_TO_RECEIVE"></span>
                     <input ng-model="data.amount" name="amount" type="number" placeholder="{{'AMOUNT_PLACEHOLDER' | translate}}"
                            required>
                     <div ng-messages="depositForm.amount.$error" role="alert"
                          ng-show='depositForm.$submitted || depositForm.amount.$dirty'>
                         <div ng-message="required" class="form-error" translate="AMOUNT_REQUIRED_MESSAGE"></div>
                         <div ng-message="number" class="form-error" translate="AMOUNT_VALID_MESSAGE"></div>
-                    </div>
-                </label>
-                <label class="item item-input item-stacked-label">
-                    <span class="input-label" translate="FEE"></span>
-                    <input ng-model="data.fee" name="fee" type="number" placeholder="{{'FEE_PLACEHOLDER' | translate}}" required>
-                    <div ng-messages="depositForm.fee.$error" role="alert"
-                         ng-show='depositForm.$submitted || depositForm.fee.$dirty'>
-                        <div ng-message="required" class="form-error" translate="FEE_REQUIRED_MESSAGE"></div>
-                        <div ng-message="number" class="form-error" translate="FEE_VALID_MESSAGE"></div>
                     </div>
                 </label>
             </div>

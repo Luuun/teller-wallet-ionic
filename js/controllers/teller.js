@@ -12,22 +12,17 @@ angular.module('generic-client.controllers.teller', [])
                     template: $translate.instant("LOADER_PROCESSING")
                 });
 
-                if (form.fee.$viewValue == null) {
-                    $scope.fee = 0
-                } else {
-                    $scope.fee = form.fee.$viewValue
+                var amount = Conversions.to_cents(parseFloat(form.amount.$viewValue));
+
+                var metadata = {
+                    to_currency: form.to_currency.$viewValue,
+                    to_amount: parseFloat(form.to_amount.$viewValue)
                 }
 
-                var amount = Conversions.to_cents(parseFloat(form.amount.$viewValue));
-                var fee = Conversions.to_cents(parseFloat(form.fee.$viewValue));
-
-                Teller.withdraw(amount, fee, $scope.currency.code).then(function (res) {
+                Teller.withdraw(amount, $scope.currency.code, metadata).then(function (res) {
                     if (res.status === 200) {
                         $scope.transaction = res.data.data
-
-                        $scope.transaction.total = Conversions.from_cents($scope.transaction.amount + $scope.transaction.fee)
                         $scope.transaction.amount = Conversions.from_cents($scope.transaction.amount)
-                        $scope.transaction.fee = Conversions.from_cents($scope.transaction.fee)
 
                         $window.localStorage.setItem('activeTellerWithdraw', JSON.stringify($scope.transaction));
                         $ionicLoading.hide();
@@ -59,22 +54,17 @@ angular.module('generic-client.controllers.teller', [])
                     template: $translate.instant("LOADER_PROCESSING")
                 });
 
-                if (form.fee.$viewValue == null) {
-                    $scope.fee = 0
-                } else {
-                    $scope.fee = form.fee.$viewValue
+                var amount = Conversions.to_cents(parseFloat(form.amount.$viewValue));
+
+                var metadata = {
+                    from_currency: form.from_currency.$viewValue,
+                    from_amount: parseFloat(form.from_amount.$viewValue)
                 }
 
-                var amount = Conversions.to_cents(parseFloat(form.amount.$viewValue));
-                var fee = Conversions.to_cents(parseFloat(form.fee.$viewValue));
-
-                Teller.deposit(amount, fee, $scope.currency.code).then(function (res) {
+                Teller.deposit(amount, $scope.currency.code, metadata).then(function (res) {
                     if (res.status === 200) {
                         $scope.transaction = res.data.data
-
-                        $scope.transaction.total = Conversions.from_cents($scope.transaction.amount + $scope.transaction.fee)
                         $scope.transaction.amount = Conversions.from_cents($scope.transaction.amount)
-                        $scope.transaction.fee = Conversions.from_cents($scope.transaction.fee)
 
                         $window.localStorage.setItem('activeTellerDeposit', JSON.stringify($scope.transaction));
                         $ionicLoading.hide();
