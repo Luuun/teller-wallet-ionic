@@ -59,8 +59,8 @@
   "EMAIL_REQUIRED_MESSAGE": "Please enter an email address.",
   "EMAIL_VALID_MESSAGE": "Please enter a valid email address.",
   "MOBILE": "Mobile",
-  "MOBILE_PLACEHOLDER": "Mobile number",
-  "MOBILE_REQUIRED_MESSAGE": "Please enter a mobile number.",
+  "MOBILE_PLACEHOLDER": "Mobile number, e.g. +27 84 ...",
+  "MOBILE_REQUIRED_MESSAGE": "Please enter a mobile number, including country code e.g. +27.",
   "FIRST_NAME": "First name",
   "FIRST_NAME_PLACEHOLDER": "First name",
   "FIRST_NAME_REQUIRED_MESSAGE": "Please enter a first name.",
@@ -257,6 +257,7 @@
   "UPLOAD_INSTRUCTIONS": "Upload or take a photo",
   "PIN_INSTRUCTIONS": "Require pin/touch ID when",
   "VERIFY_MOBILE": "Verify mobile",
+  "USERNAME": "Your username is {{ username }}.",
 
   "ABOUT": "About",
 

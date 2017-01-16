@@ -2,24 +2,37 @@
     <div ng-controller="UsernameCtrl">
         <form name="usernameForm" method="post" novalidate>
             <ion-content class="container-body">
-                <div class="list">
+                <div ng-if="!data.username" class="list">
                     <label class="item item-input item-stacked-label">
                         <span class="input-label">Username</span>
+
                         <input ng-model="data.username" name="username" type="text" placeholder="Set your username"
                                value="{{ data.username }}">
-
                     </label>
+                </div>
+
+                <div ng-if="data.username" class="container-default-background">
+                    <div class="row">
+                        <div class="col col-100">
+                            <div class="row center">
+                                <p style="padding-top: 5px;" translate="USERNAME"
+                                   translate-values="{ username: data.username }"></p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </ion-content>
 
-            <!-- Footer bar hack to get layout right -->
-            <ion-footer-bar class="high-footer bar-dark">
-            </ion-footer-bar>
+            <div ng-if="!data.username">
+                <!-- Footer bar hack to get layout right -->
+                <ion-footer-bar class="high-footer bar-dark">
+                </ion-footer-bar>
 
-            <button keyboard-attach class="high-footer bar bar-footer" ng-click="submit(usernameForm)"
-                    linked="clickMe">
-                <h1 class="title">Save</h1>
-            </button>
+                <button keyboard-attach class="high-footer bar bar-footer" ng-click="submit(usernameForm)"
+                        linked="clickMe">
+                    <h1 class="title">Save</h1>
+                </button>
+            </div>
         </form>
     </div>
 </ion-view>

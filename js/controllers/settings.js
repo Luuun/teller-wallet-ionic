@@ -9,8 +9,8 @@ angular.module('generic-client.controllers.settings', [])
         'use strict';
 
         $scope.image = {
-           fileData: $stateParams.fileData,
-           croppedFileData: ''
+            fileData: $stateParams.fileData,
+            croppedFileData: ''
         };
 
         $scope.loadDone = function () {
@@ -25,7 +25,7 @@ angular.module('generic-client.controllers.settings', [])
         $scope.upload = function () {
             if ($scope.image.fileData) {
                 // Convert data URL to blob file
-                Promise.resolve(Upload.dataUrltoBlob(($scope.image.croppedFileData || $scope.image.fileData), "file")).then(function(file) {
+                Promise.resolve(Upload.dataUrltoBlob(($scope.image.croppedFileData || $scope.image.fileData), "file")).then(function (file) {
                     Upload.upload({
                         url: API + "/users/profile/",
                         data: {
@@ -41,7 +41,10 @@ angular.module('generic-client.controllers.settings', [])
                         $state.go('app.profile_image');
                     }, function (res) {
                         $ionicLoading.hide();
-                        $ionicPopup.alert({title: $translate.instant("ERROR"), template: $translate.instant("UPLOAD_ERROR")});
+                        $ionicPopup.alert({
+                            title: $translate.instant("ERROR"),
+                            template: $translate.instant("UPLOAD_ERROR")
+                        });
                         $state.go('app.profile_image');
                     }, function (evt) {
                         $ionicLoading.show({
@@ -65,7 +68,7 @@ angular.module('generic-client.controllers.settings', [])
             // Convert to Data URL
             var reader = new FileReader();
             reader.onloadend = function (evt) {
-                $timeout(function() {
+                $timeout(function () {
                     $state.go('app.profile_image_upload', {
                         fileData: evt.target.result
                     });
@@ -77,7 +80,7 @@ angular.module('generic-client.controllers.settings', [])
         $scope.getFile = function () {
             'use strict';
             if (ionic.Platform.isWebView()) {
-                ionic.Platform.ready(function(){
+                ionic.Platform.ready(function () {
                     var cameraOptions = {
                         quality: 75,
                         allowEdit: false,
@@ -154,7 +157,7 @@ angular.module('generic-client.controllers.settings', [])
         $scope.refreshData();
     })
 
-    .controller('UsernameCtrl', function ($scope, $ionicPopup, $ionicModal, $state, $ionicLoading, PersonalDetails, Countries) {
+    .controller('UsernameCtrl', function ($scope, $ionicHistory, $translate, $ionicPopup, $ionicModal, $state, $ionicLoading, PersonalDetails, Countries) {
         'use strict';
 
         $scope.refreshData = function () {
@@ -173,7 +176,7 @@ angular.module('generic-client.controllers.settings', [])
 
         $scope.submit = function (form) {
             $ionicLoading.show({
-                template: 'Saving Username...'
+                template: $translate.instant("LOADER_SAVING")
             });
 
             if (form.$valid) {
@@ -225,16 +228,16 @@ angular.module('generic-client.controllers.settings', [])
                     form.country.$viewValue,
                     form.postal_code.$viewValue).then(function (res) {
 
-                    if (res.status === 200) {
+                        if (res.status === 200) {
+                            $ionicLoading.hide();
+                        } else {
+                            $ionicLoading.hide();
+                            $ionicPopup.alert({title: $translate.instant("ERROR"), template: res.message});
+                        }
+                    }).catch(function (error) {
+                        $ionicPopup.alert({title: $translate.instant("AUTHENTICATION_ERROR"), template: error.message});
                         $ionicLoading.hide();
-                    } else {
-                        $ionicLoading.hide();
-                        $ionicPopup.alert({title: $translate.instant("ERROR"), template: res.message});
-                    }
-                }).catch(function (error) {
-                    $ionicPopup.alert({title: $translate.instant("AUTHENTICATION_ERROR"), template: error.message});
-                    $ionicLoading.hide();
-                });
+                    });
             }
         };
 
@@ -316,7 +319,10 @@ angular.module('generic-client.controllers.settings', [])
                                 $ionicPopup.alert({title: $translate.instant("ERROR"), template: res.message});
                             }
                         }).catch(function (error) {
-                            $ionicPopup.alert({title: $translate.instant("AUTHENTICATION_ERROR"), template: error.message});
+                            $ionicPopup.alert({
+                                title: $translate.instant("AUTHENTICATION_ERROR"),
+                                template: error.message
+                            });
                             $ionicLoading.hide();
                         });
                     $state.go('app.list_bank_accounts', {});
@@ -341,7 +347,10 @@ angular.module('generic-client.controllers.settings', [])
                                 $ionicPopup.alert({title: $translate.instant("ERROR"), template: res.message});
                             }
                         }).catch(function (error) {
-                            $ionicPopup.alert({title: $translate.instant("AUTHENTICATION_ERROR"), template: error.message});
+                            $ionicPopup.alert({
+                                title: $translate.instant("AUTHENTICATION_ERROR"),
+                                template: error.message
+                            });
                             $ionicLoading.hide();
                         });
                     $state.go('app.list_bank_accounts', {});
@@ -459,7 +468,10 @@ angular.module('generic-client.controllers.settings', [])
                 Email.create(form.email_address.$viewValue, false).then(function (res) {
                     if (res.status === 201) {
                         $ionicLoading.hide();
-                        $ionicPopup.alert({title: $translate.instant("SUCCESS"), template: $translate.instant("VERIFICATION_SENT")});
+                        $ionicPopup.alert({
+                            title: $translate.instant("SUCCESS"),
+                            template: $translate.instant("VERIFICATION_SENT")
+                        });
                         $scope.list();
                     } else {
                         $ionicLoading.hide();
@@ -519,7 +531,10 @@ angular.module('generic-client.controllers.settings', [])
                 Email.resendVerification(email_address, res.data.data.identifier).then(function (res) {
                     if (res.status === 200) {
                         $ionicLoading.hide();
-                        $ionicPopup.alert({title: $translate.instant("SUCCESS"), template: $translate.instant("VERIFICATION_SENT")});
+                        $ionicPopup.alert({
+                            title: $translate.instant("SUCCESS"),
+                            template: $translate.instant("VERIFICATION_SENT")
+                        });
                         $scope.list();
                     } else {
                         $ionicLoading.hide();
@@ -614,7 +629,7 @@ angular.module('generic-client.controllers.settings', [])
             });
 
             CompanyDetails.get().then(function (res) {
-                 Mobile.resendVerification(mobile_number, res.data.data.identifier).then(function (res) {
+                Mobile.resendVerification(mobile_number, res.data.data.identifier).then(function (res) {
                     if (res.status === 200) {
                         $ionicLoading.hide();
                         $state.go('app.verify_mobile', {});
@@ -679,18 +694,21 @@ angular.module('generic-client.controllers.settings', [])
                     form.new_password.$viewValue,
                     form.confirm_password.$viewValue).then(function (res) {
 
-                    if (res.status === 200) {
+                        if (res.status === 200) {
+                            $ionicLoading.hide();
+                            $ionicPopup.alert({
+                                title: $translate.instant("SUCCESS"),
+                                template: $translate.instant("PASSWORD_CHANGED")
+                            });
+                            $state.go('app.security', {});
+                        } else {
+                            $ionicLoading.hide();
+                            $ionicPopup.alert({title: $translate.instant("ERROR"), template: res.data.message});
+                        }
+                    }).catch(function (error) {
+                        $ionicPopup.alert({title: $translate.instant("AUTHENTICATION_ERROR"), template: error.message});
                         $ionicLoading.hide();
-                        $ionicPopup.alert({title: $translate.instant("SUCCESS"), template: $translate.instant("PASSWORD_CHANGED")});
-                        $state.go('app.security', {});
-                    } else {
-                        $ionicLoading.hide();
-                        $ionicPopup.alert({title: $translate.instant("ERROR"), template: res.data.message});
-                    }
-                }).catch(function (error) {
-                    $ionicPopup.alert({title: $translate.instant("AUTHENTICATION_ERROR"), template: error.message});
-                    $ionicLoading.hide();
-                });
+                    });
             }
         };
     })

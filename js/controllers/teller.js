@@ -174,7 +174,7 @@ angular.module('generic-client.controllers.teller', [])
         $scope.back = function () {
             if ($scope.transaction.tx_type == 'deposit') {
                 $ionicHistory.nextViewOptions({
-                    disableBack: true
+                    disable: true
                 });
                 $state.go('app.deposit');
             } else if ($scope.transaction.tx_type == 'withdraw') {
