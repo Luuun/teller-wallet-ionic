@@ -60,7 +60,7 @@ angular.module('generic-client.controllers.accounts', [])
                     template: $translate.instant("LOADER_SIGNING_UP")
                 });
 
-                User.register(form.first_name.$viewValue, form.email.$viewValue, form.mobile_number.$viewValue, COMPANY, form.password1.$viewValue, form.password2.$viewValue)
+                User.register(form.first_name.$viewValue, form.email.$viewValue, COMPANY, form.password1.$viewValue, form.password2.$viewValue)
                     .then(function (res) {
                     if (res.status === 201) {
                         $ionicLoading.hide();
