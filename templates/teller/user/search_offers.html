@@ -18,8 +18,14 @@
                             <h4 ng-if="offers === true" translate="FOUND_TEXT"></h4>
                         </div>
                         <div class="row">
-                            <p translate="SEARCH_DESCRIPTION"
-                               translate-values="{tx_type: transaction.tx_type, currency: transaction.currency, amount: transaction.amount, fee: transaction.fee, from_currency: transaction.metadata.from_currency, from_amount: transaction.metadata.from_amount}"></p>
+                            <p ng-if="transaction.metadata.from_currency"
+                                translate="DEPOSIT_SEARCH_DESCRIPTION"
+                                translate-values="{ currency: currency.code, fee: transaction.fee, amount: transaction.amount, tx_type: transaction.tx_type, from_currency: transaction.metadata.from_currency, from_amount: transaction.metadata.from_amount}">
+                            </p> 
+                            <p ng-if="transaction.metadata.to_currency"
+                                translate="WITHDRAW_SEARCH_DESCRIPTION"
+                                translate-values="{ currency: currency.code, fee: transaction.fee, amount: transaction.amount, tx_type: transaction.tx_type, to_currency: transaction.metadata.to_currency, to_amount: transaction.metadata.to_amount}">
+                            </p>
                         </div>
                     </div>
                 </div>

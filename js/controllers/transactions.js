@@ -8,31 +8,15 @@ angular.module('generic-client.controllers.transactions', [])
 
             // If a teller deposit/withdraw
             if (transaction.metadata.teller !== undefined) {
-                transaction.description = "Teller " + transaction.metadata.type;
-
                 if (transaction.metadata.type === "deposit") {
-                    transaction.amount = Conversions.from_cents(transaction.amount);
-                    transaction.fee = Conversions.from_cents(transaction.fee);
-                    transaction.metadata.fee = Conversions.from_cents(transaction.metadata.fee);
+                    transaction.description = "Buy";
                 } else if (transaction.metadata.type === "withdraw") {
-                    if (transaction.amount > 0) {
-                        transaction.amount = Conversions.from_cents((transaction.amount - transaction.metadata.fee));
-                    } else {
-                        transaction.amount = Conversions.from_cents((transaction.amount + transaction.metadata.fee));
-                    }
-                    transaction.metadata.fee = Conversions.from_cents(transaction.metadata.fee);
-                    transaction.fee = Conversions.from_cents(transaction.fee);
+                    transaction.description = "Sell";
                 }
-            // Conversions
-            } else if (transaction.metadata.rate !== undefined) {
-                transaction.description = "Conversion " + transaction.tx_type;
-                transaction.metadata.from_amount = Conversions.from_cents(transaction.metadata.from_amount);
-                transaction.metadata.to_amount = Conversions.from_cents(transaction.metadata.to_amount);
-                transaction.amount = Conversions.from_cents(transaction.amount);
-            // Normal transactions
-            } else {
-                transaction.amount = Conversions.from_cents(transaction.amount);
             }
+
+            transaction.amount = Conversions.from_cents((transaction.amount));
+            transaction.fee = Conversions.from_cents(transaction.fee);
 
             return transaction;
         };
