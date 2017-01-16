@@ -9,10 +9,9 @@ angular.module('generic-client.controllers.transactions', [])
             // If a teller deposit/withdraw
             if (transaction.metadata.teller !== undefined) {
                 if (transaction.metadata.type === "deposit") {
-                    transaction.description = "Bought";
+                    transaction.description = "Buy";
                 } else if (transaction.metadata.type === "withdraw") {
-                    transaction.description = "Sold";
-
+                    transaction.description = "Sell";
                 }
             }
 
