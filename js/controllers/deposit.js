@@ -2,8 +2,7 @@ angular.module('generic-client.controllers.deposit', [])
 
     .controller('DepositCtrl', function ($scope, $state, $window, $ionicHistory) {
         'use strict';
-        $scope.items = [{'title': 'Bank Deposit', 'method': 'bank_deposit'},
-            {'title': 'Teller Deposit', 'method': 'teller_deposit'}];
+        $scope.items = [{'title': 'Find Teller', 'method': 'teller_deposit'}];
 
         var transaction = JSON.parse($window.localStorage.getItem('activeTellerDeposit'));
         var offer = JSON.parse($window.localStorage.getItem('activeTellerDepositOffer'));

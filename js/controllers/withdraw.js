@@ -2,8 +2,8 @@ angular.module('generic-client.controllers.withdraw', [])
 
     .controller('WithdrawToCtrl', function ($scope, $state, $window, $ionicHistory, $stateParams, BitcoinWithdrawalAccount, BankAccount) {
         'use strict';
-        $scope.items = [{'title': 'Bank account', 'accType': 'bank_account'},
-                        {'title': 'Teller Withdraw', 'accType': 'teller'}];
+
+        $scope.items = [{'title': 'Find Teller', 'accType': 'teller'}];
         $scope.data = {};
         $scope.accType = $stateParams.accType;
 
@@ -13,40 +13,6 @@ angular.module('generic-client.controllers.withdraw', [])
         if ($stateParams['account']) {
             $ionicHistory.goBack(-2);
             $state.go('app.withdraw_amount', {account: $stateParams['account']});
-        }
-
-        if ($scope.accType == 'bitcoin_account') {
-            $scope.listData = function () {
-                BitcoinWithdrawalAccount.list().success(
-                    function (res) {
-                        var items = [];
-                        for (var i = 0; i < res.data.length; i++) {
-                            items.push(res.data[i]);
-                        }
-                        $scope.items = items;
-                        $window.localStorage.setItem('myBitcoinWithdrawalAccounts', JSON.stringify(items));
-                        $scope.$broadcast('scroll.refreshComplete');
-                    }
-                );
-
-            };
-            $scope.listData();
-        } else if ($scope.accType == 'bank_account') {
-            $scope.listData = function () {
-                BankAccount.list().success(
-                    function (res) {
-                        var items = [];
-                        for (var i = 0; i < res.data.length; i++) {
-                            items.push(res.data[i]);
-                        }
-                        $scope.items = items;
-                        $window.localStorage.setItem('myBankAccounts', JSON.stringify(items));
-                        $scope.$broadcast('scroll.refreshComplete');
-                    }
-                );
-
-            };
-            $scope.listData();
         }
 
         $scope.submit = function (accType) {

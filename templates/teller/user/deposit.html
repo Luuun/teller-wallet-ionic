@@ -1,4 +1,4 @@
-<ion-view view-title="{{'BUY' | translate}}">
+<ion-view view-title="{{'BUY_LUMENS' | translate}}">
     <ion-nav-buttons side="right">
         <button class="button button-clear" ng-click="close()" translate="CLOSE">
         </button>
@@ -20,9 +20,9 @@
                     </div>
                 </label>
 
-
-                <div class="item item-banner" translate="BUY_DESCRIPTION"></div>
-
+                <div class="item background-light">
+                    <b translate="BUY_SELL_DESCRIPTION"></b>
+                </div>
 
                 <label class="item item-input item-select">
                     <span class="input-label" translate="BUY_CURRENCY"></span>
@@ -35,6 +35,11 @@
                         <option value="ZAR">ZAR</option>
                     </select>
                 </label>
+
+                <div ng-messages="depositForm.from_currency.$error" role="alert"
+                     ng-show='depositForm.$submitted || depositForm.from_currency.$dirty' style="padding-left: 10px">
+                    <div ng-message="required" class="form-error" translate="CURRENCY_REQUIRED_MESSAGE"></div>
+                </div>
 
                 <label class="item item-input item-stacked-label">
                     <span class="input-label" translate="BUY_PRICE"></span>

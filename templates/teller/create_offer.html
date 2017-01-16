@@ -8,10 +8,8 @@
             <div class="list">
                 <div class="item item-input item-stacked-label">
                     <span class="input-label" translate="LOCATION_NOTE"></span>
-                    <br>
-                    <textarea rows="2" name="note" ng-model="data.note" type="text"
-                           placeholder="{{'LOCATION_NOTE_PLACEHOLDER' | translate}}" required style="line-height: 20px; font-size: 14px; padding-top:5px;"></textarea>
-
+                    <textarea rows="3" name="note" ng-model="data.note" type="text"
+                           placeholder="{{'LOCATION_NOTE_PLACEHOLDER' | translate}}" required style="line-height: 20px; font-size: 14px; padding-top:15px;"></textarea>
                     <div ng-messages="tellerCreateForm.note.$error" role="alert"
                          ng-show='tellerCreateForm.$submitted || tellerCreateForm.note.$dirty'>
                         <div ng-message="required" class="form-error" translate="LOCATION_NOTE_REQUIRED_MESSAGE">

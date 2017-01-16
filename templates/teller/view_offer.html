@@ -13,10 +13,10 @@
                                 <h4>
                                     <b ng-if="offer.transaction.metadata.from_currency"
                                         translate="DEPOSIT_TELLER_OFFER_TRANSACTION"
-                                        translate-values="{ currency: currency.symbol, fee: offer.transaction.fee, currency: currency.symbol, amount: offer.transaction.amount, tx_type: offer.transaction.tx_type, from_currency: offer.transaction.metadata.from_currency, from_amount: offer.transaction.metadata.from_amount}"></b>
+                                        translate-values="{ currency: offer.transaction.currency, fee: offer.transaction.fee, amount: offer.transaction.amount, tx_type: offer.transaction.tx_type, from_currency: offer.transaction.metadata.from_currency, from_amount: offer.transaction.metadata.from_amount}"></b>
                                     <b ng-if="offer.transaction.metadata.to_currency"
                                         translate="WITHDRAW_TELLER_OFFER_TRANSACTION"
-                                        translate-values="{ currency: currency.symbol, fee: offer.transaction.fee, currency: currency.symbol, amount: offer.transaction.amount, tx_type: offer.transaction.tx_type, to_currency: offer.transaction.metadata.to_currency, to_amount: offer.transaction.metadata.to_amount}"></b>
+                                        translate-values="{ currency: offer.transaction.currency, fee: offer.transaction.fee, amount: offer.transaction.amount, tx_type: offer.transaction.tx_type, to_currency: offer.transaction.metadata.to_currency, to_amount: offer.transaction.metadata.to_amount}"></b>
                                 </h4>
                             </div>
                         </div>
@@ -121,14 +121,14 @@
                     <span class="col-50 align-left" translate="AMOUNT">
                     </span>
                     <span class="col-50 align-right">
-                        {{ currency.symbol }} {{ offer.transaction.amount }}
+                        {{ offer.transaction.currency }} {{ offer.transaction.amount }}
                     </span>
                     </div>
                     <div class="row">
                     <span class="col-50 align-left" translate="TOTAL">
                     </span>
                     <span class="col-50 align-right">
-                        {{ currency.symbol }} {{ offer.transaction.total }}
+                        {{ offer.transaction.currency }} {{ offer.transaction.total }}
                     </span>
                     </div>
                 </div>
@@ -142,12 +142,12 @@
                         <span ng-if="offer.transaction.metadata.from_currency"
                             class="col-100 align-left"
                             translate="DEPOSIT_TELLER_OFFER_TRANSACTION"
-                            translate-values="{ currency: currency.symbol, fee: offer.transaction.fee, currency: currency.symbol, amount: offer.transaction.amount, tx_type: offer.transaction.tx_type, from_currency: offer.transaction.metadata.from_currency, from_amount: offer.transaction.metadata.from_amount}">
+                            translate-values="{ currency: offer.transaction.currency, fee: offer.transaction.fee, amount: offer.transaction.amount, tx_type: offer.transaction.tx_type, from_currency: offer.transaction.metadata.from_currency, from_amount: offer.transaction.metadata.from_amount}">
                         </span>
                         <span ng-if="offer.transaction.metadata.to_currency"
                             class="col-100 align-left"
                             translate="WITHDRAW_TELLER_OFFER_TRANSACTION"
-                            translate-values="{ currency: currency.symbol, fee: offer.transaction.fee, currency: currency.symbol, amount: offer.transaction.amount, tx_type: offer.transaction.tx_type, to_currency: offer.transaction.metadata.to_currency, to_amount: offer.transaction.metadata.to_amount}">
+                            translate-values="{ currency: offer.transaction.currency, fee: offer.transaction.fee, amount: offer.transaction.amount, tx_type: offer.transaction.tx_type, to_currency: offer.transaction.metadata.to_currency, to_amount: offer.transaction.metadata.to_amount}">
                         </span>
                     </div>
                 </div>

@@ -77,7 +77,7 @@
   "PROMOTION_CODE_PLACEHOLDER": "Promotion code",
   "PROMOTION_CODE_REQUIRED_MESSAGE": "Please enter a promotion code",
   "AMOUNT": "Amount",
-  "AMOUNT_PLACEHOLDER": "e.g. 1000.00",
+  "AMOUNT_PLACEHOLDER": "Enter amount",
   "AMOUNT_REQUIRED_MESSAGE": "Please enter an amount.",
   "AMOUNT_VALID_MESSAGE": "Please enter a valid amount.",
   "FEE": "Fee",
@@ -156,7 +156,9 @@
   "DEPOSIT_NO_INSTRUCTIONS": "No deposit instructions have been provided.",
   "BANK": "Bank",
 
-  "BUY": "Buy Lumens",
+  "BUY_LUMENS": "Buy Lumens",
+  "SELL_LUMENS": "Sell Lumens",
+
 
   "WITHDRAW": "Withdraw",
   "SELECT_BANK_ACCOUNT": "Select bank account",
@@ -191,7 +193,7 @@
   "COMPLETED_TEXT": "Transaction is complete.",
   "SEARCHING_TEXT": "We're searching for tellers",
   "FOUND_TEXT": "We found tellers near you",
-  "SEARCH_DESCRIPTION": "You've placed a {{ tx_type }} request of {{ currency }} {{ amount }} and offered a {{ currency }} {{ fee }} convenience fee. Cancel this transaction if you want to increase your fee",
+  "SEARCH_DESCRIPTION": "You want to {{ tx_type }} {{ currency }} {{ amount }} for {{ from_currency }} {{ from_amount }}. Cancel this transaction if you want to change your request.",
   "RATE_USER_INSTRUCTIONS": "Please rate the user.",
   "RATE_TELLER_INSTRUCTIONS": "Please rate the teller and the service they provided.",
   "USER_CODE_INSTRUCTIONS": "Please present this code in-person to the teller to complete your deposit.",
@@ -298,7 +300,7 @@
   "WITHDRAW_CURRENCY_TO_RECEIVE": "Currency to receive",
   "WITHDRAW_AMOUNT_TO_RECEIVE": "Amount to receive",
 
-  "BUY_DESCRIPTION": "Set price and currency",
+  "BUY_SELL_DESCRIPTION": "Set currency and price",
   "BUY_CURRENCY": "Select currency",
   "BUY_PRICE": "What's your price?",
   "BUY_AMOUNT": "How many lumens would you like to buy?",

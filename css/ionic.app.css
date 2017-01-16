@@ -9851,8 +9851,8 @@ a.button {
     .bar.cancel .title {
       color: #fff; }
   .bar.success {
-    border-color: #38C87F;
-    background-color: #38C87F;
+    border-color: #01C68B;
+    background-color: #01C68B;
     background-image: none;
     color: #fff; }
     .bar.success .title {
@@ -10022,7 +10022,7 @@ input.ng-invalid, input.ng-dirty {
   padding: 10px; }
 
 .container-deposit-reference {
-  background-color: #38C87F;
+  background-color: #01C68B;
   padding: 10px; }
   .container-deposit-reference h4 {
     color: #FFF; }
@@ -10030,7 +10030,7 @@ input.ng-invalid, input.ng-dirty {
     color: #FFF; }
 
 .container-success {
-  background-color: #38C87F;
+  background-color: #01C68B;
   padding: 44px; }
   .container-success h2 {
     font-size: 20px;
@@ -10145,7 +10145,7 @@ img-crop {
   height: 55px; }
 
 .teller-alert {
-  background-color: #38C87F; }
+  background-color: #01C68B; }
   .teller-alert h2 {
     color: #FFF; }
   .teller-alert h4 {

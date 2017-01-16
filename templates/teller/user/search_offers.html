@@ -19,7 +19,7 @@
                         </div>
                         <div class="row">
                             <p translate="SEARCH_DESCRIPTION"
-                               translate-values="{ tx_type: transaction.tx_type, currency: currency.symbol, amount: transaction.amount, fee: transaction.fee}"></p>
+                               translate-values="{tx_type: transaction.tx_type, currency: transaction.currency, amount: transaction.amount, fee: transaction.fee, from_currency: transaction.metadata.from_currency, from_amount: transaction.metadata.from_amount}"></p>
                         </div>
                     </div>
                 </div>

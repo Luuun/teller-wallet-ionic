@@ -1,4 +1,4 @@
-<ion-view view-title="{{'WITHDRAW' | translate}}">
+<ion-view view-title="{{'SELL_LUMENS' | translate}}">
     <ion-nav-buttons side="right">
         <button class="button button-clear" ng-click="close()" translate="CLOSE">
         </button>
@@ -6,25 +6,9 @@
     <form name="depositForm" method="post" novalidate>
         <ion-content class="container-body">
             <div class="list">
-                <label class="item item-input item-select">
-                    <span class="input-label" translate="WITHDRAW_CURRENCY_TO_RECEIVE"></span>
-                    <select ng-model="data.to_currency" name="to_currency" required>
-                        <option  value="USD">USD</option>
-                        <option value="SGD">SGD</option>
-                        <option value="IDR">IDR</option>
-                        <option value="EUR">EUR</option>
-                        <option value="CNY">CNY</option>
-                        <option value="ZAR">ZAR</option>
-                    </select>
-                </label> 
-                <label class="item item-input">
-                    <div ng-messages="depositForm.to_currency.$error" role="alert"
-                         ng-show='depositForm.$submitted || depositForm.to_currency.$dirty'>
-                        <div ng-message="required" class="form-error" translate="CURRENCY_REQUIRED_MESSAGE"></div>
-                    </div>                    
-                </label>
+
                 <label class="item item-input item-stacked-label">
-                    <span class="input-label" translate="WITHDRAW_AMOUNT_TO_RECEIVE"></span>
+                    <span class="input-label" translate="SELL_AMOUNT"></span>
                     <input ng-model="data.to_amount" name="to_amount" type="number" placeholder="{{'AMOUNT_PLACEHOLDER' | translate}}"
                            required>
                     <div ng-messages="depositForm.to_amount.$error" role="alert"
@@ -33,8 +17,28 @@
                         <div ng-message="number" class="form-error" translate="AMOUNT_VALID_MESSAGE"></div>
                     </div>
                 </label>
+
+                <div class="item background-light">
+                    <b translate="BUY_SELL_DESCRIPTION"></b>
+                </div>
+
+                <label class="item item-input item-select">
+                    <span class="input-label" translate="SELL_CURRENCY"></span>
+                    <select ng-model="data.to_currency" name="to_currency" required>
+                        <option  value="USD">USD</option>
+                        <option value="SGD">SGD</option>
+                        <option value="IDR">IDR</option>
+                        <option value="EUR">EUR</option>
+                        <option value="CNY">CNY</option>
+                        <option value="ZAR">ZAR</option>
+                    </select>
+                </label>
+                <div ng-messages="depositForm.to_currency.$error" role="alert"
+                     ng-show='depositForm.$submitted || depositForm.to_currency.$dirty' style="padding-left: 10px">
+                    <div ng-message="required" class="form-error" translate="CURRENCY_REQUIRED_MESSAGE"></div>
+                </div>
                 <label class="item item-input item-stacked-label">
-                    <span class="input-label" translate="WITHDRAW_AMOUNT_TO_EXCHANGE"></span>
+                    <span class="input-label" translate="SELL_PRICE"></span>
                     <input ng-model="data.amount" name="amount" type="number" placeholder="{{'AMOUNT_PLACEHOLDER' | translate}}"
                            required>
                     <div ng-messages="depositForm.amount.$error" role="alert"
