@@ -168,6 +168,9 @@
   "WITHDRAW_SUCCESS_MESSAGE": "You have successfully made a withdrawal of {{ currency }}{{ amount }}.",
 
   "RECEIVE": "Receive",
+  "RECEIVE_ADVANCED": "Advanced",
+  "RECEIVE_ADVANCED_ADDRESS": "Address",
+  "RECEIVE_ADVANCED_MEMO": "Memo",
 
   "CONVERT": "Convert",
 

@@ -1,0 +1,25 @@
+<ion-modal-view>
+    <ion-header-bar class="bar bar-header">
+        <h1 class="title" translate="RECEIVE_ADVANCED"></h1>
+        <button class="button button-clear button-primary" ng-click="CloseModalAdvanced()" translate="CLOSE"></button>
+    </ion-header-bar>
+    <ion-content class="container-body select-body" class="container-body" class="padding" data-tap-disabled="true">
+        <div class="row">
+            <div class="col col-100">
+                <p>Use the following address details if your Stellar wallet does not support federated addresses for sending.</p>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <div class="col col-100">
+                <p><b translate="RECEIVE_ADVANCED_ADDRESS"></b><br>{{ account.details.address }}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-100">
+                <p><b translate="RECEIVE_ADVANCED_MEMO"></b><br>{{ account.details.memo }}</p>
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

@@ -9731,6 +9731,11 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+.select-body {
+  -webkit-user-select: auto !important; }
+  .select-body .scroll {
+    -webkit-user-select: inherit; }
+
 .background-light {
   background: #F6F6F6; }
 
