@@ -9,10 +9,10 @@
 
                 <label class="item item-input item-stacked-label">
                     <span class="input-label" translate="SELL_AMOUNT"></span>
-                    <input ng-model="data.to_amount" name="to_amount" type="number" placeholder="{{'AMOUNT_PLACEHOLDER' | translate}}"
+                    <input ng-model="data.amount" name="amount" type="number" placeholder="{{'AMOUNT_PLACEHOLDER' | translate}}"
                            required>
-                    <div ng-messages="depositForm.to_amount.$error" role="alert"
-                         ng-show='depositForm.$submitted || depositForm.to_amount.$dirty'>
+                    <div ng-messages="depositForm.amount.$error" role="alert"
+                         ng-show='depositForm.$submitted || depositForm.amount.$dirty'>
                         <div ng-message="required" class="form-error" translate="AMOUNT_REQUIRED_MESSAGE"></div>
                         <div ng-message="number" class="form-error" translate="AMOUNT_VALID_MESSAGE"></div>
                     </div>
@@ -39,10 +39,10 @@
                 </div>
                 <label class="item item-input item-stacked-label">
                     <span class="input-label" translate="SELL_PRICE"></span>
-                    <input ng-model="data.amount" name="amount" type="number" placeholder="{{'AMOUNT_PLACEHOLDER' | translate}}"
+                    <input ng-model="data.to_amount" name="to_amount" type="number" placeholder="{{'AMOUNT_PLACEHOLDER' | translate}}"
                            required>
-                    <div ng-messages="depositForm.amount.$error" role="alert"
-                         ng-show='depositForm.$submitted || depositForm.amount.$dirty'>
+                    <div ng-messages="depositForm.to_amount.$error" role="alert"
+                         ng-show='depositForm.$submitted || depositForm.to_amount.$dirty'>
                         <div ng-message="required" class="form-error" translate="AMOUNT_REQUIRED_MESSAGE"></div>
                         <div ng-message="number" class="form-error" translate="AMOUNT_VALID_MESSAGE"></div>
                     </div>
