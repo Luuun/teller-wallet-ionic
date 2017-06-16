@@ -34,15 +34,15 @@ angular.module('generic-client', ['ionic',
     'generic-client.filters.contacts'])
 
     //.constant('API', 'http://localhost:8080/api/2')
-    .constant('API', 'https://rehive.com/api/2')
+    .constant('API', 'https://staging.rehive.com/api/2')
     //.constant('COMPANY_API', 'http://localhost:8080/services/teller')
-    .constant('COMPANY_API', 'https://rehive.com/services/teller')
+    .constant('COMPANY_API', 'https://staging.rehive.com/services/teller')
     //.constant('CONVERSION_API', 'http://localhost:8080/services/conversion')
-    .constant('CONVERSION_API', 'https://rehive.com/services/conversion')
+    .constant('CONVERSION_API', 'https://staging.rehive.com/services/conversion')
     //.constant('CONVERSION_API', 'http://localhost:8080/services/conversion')
-    .constant('CRYPTO_API', 'https://rehive.com/services/crypto')
+    .constant('CRYPTO_API', 'https://staging.rehive.com/services/crypto')
     //.constant('COMPANY', 'test_company_1')
-    .constant('COMPANY', 'luuun')
+    .constant('COMPANY', 'luuun_test')
 
     .constant('REFRESH_INTERVAL', 3000)
 
