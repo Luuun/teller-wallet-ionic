@@ -30,6 +30,25 @@ angular.module('generic-client.services.transactions', [])
         };
     })
 
+    .service('Stellar', function ($http, CRYPTO_API) {
+        'use strict';
+        var self = this;
+
+        self.send = function (amount,
+                              memo,
+                              reference,
+                              currency = 'XLM',
+                              account = 'default') {
+            return $http.post(CRYPTO_API + '/transactions/send/', {
+                amount: amount,
+                memo: memo,
+                reference: reference,
+                currency: currency,
+                account: account
+            });
+        };
+    })
+
     .service('Withdrawal', function ($http, API) {
         'use strict';
         var self = this;
@@ -60,12 +79,12 @@ angular.module('generic-client.services.transactions', [])
 
         self.from_cents = function (amount) {
             var currency = JSON.parse($window.localStorage.myCurrency);
-            return parseFloat(amount/Math.pow(10, currency.divisibility)).toFixed(currency.divisibility);
+            return parseFloat(amount / Math.pow(10, currency.divisibility)).toFixed(currency.divisibility);
         };
 
         self.to_cents = function (amount) {
             var currency = JSON.parse($window.localStorage.myCurrency);
-            return parseFloat(amount*Math.pow(10, currency.divisibility)).toFixed(currency.divisibility);
+            return parseFloat(amount * Math.pow(10, currency.divisibility)).toFixed(currency.divisibility);
         };
 
         self.createQuote = function (amount, currency, to_currency) {

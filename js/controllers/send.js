@@ -10,7 +10,7 @@ angular.module('generic-client.controllers.send', [])
             if (form.$valid) {
                 $state.go('app.send_to', {
                     amount: form.amount.$viewValue,
-                    note: form.note.$viewValue,
+                    memo: form.memo.$viewValue,
                     currency: $scope.currency
                 });
             }
@@ -21,7 +21,7 @@ angular.module('generic-client.controllers.send', [])
         'use strict';
         $scope.data = {};
         $scope.amount = $stateParams.amount;
-        $scope.note = $stateParams.note;
+        $scope.memo = $stateParams.memo;
         $scope.currency = $stateParams.currency;
 
         function onSuccess(contacts) {
@@ -49,7 +49,7 @@ angular.module('generic-client.controllers.send', [])
             if (form.$valid) {
                 $state.go('app.send_confirm', {
                     amount: $scope.amount,
-                    note: $scope.note,
+                    memo: $scope.memo,
                     to: form.to.$viewValue,
                     currency: $scope.currency
                 });
@@ -57,29 +57,32 @@ angular.module('generic-client.controllers.send', [])
         };
     })
 
-    .controller('SendConfirmCtrl', function ($scope, $state, $stateParams, $ionicLoading, $translate, Transaction, $ionicPopup, Conversions) {
+    .controller('SendConfirmCtrl', function ($scope, $state, $stateParams, $ionicLoading, $translate, Stellar, $ionicPopup, Conversions) {
         'use strict';
         $scope.data = {};
         $scope.amount = $stateParams.amount;
-        $scope.note = $stateParams.note;
+        $scope.memo = $stateParams.memo;
         $scope.to = $stateParams.to;
         $scope.currency = $stateParams.currency;
 
-        if ($scope.note === null) {
-            $scope.note = ''
+        if ($scope.memo === null) {
+            $scope.memo = ''
         }
 
-        $scope.submit = function (amount, note, to, currency) {
+        $scope.submit = function (amount, memo, to, currency) {
             $ionicLoading.show({
                 template: $translate.instant("LOADER_SENDING")
             });
 
-            Transaction.create(Conversions.to_cents(amount), note, to).then(function (res) {
+            Stellar.send(Conversions.to_cents(amount),
+                         memo,
+                         to,
+                         currency.code).then(function (res) {
                 if (res.status === 201) {
                     $ionicLoading.hide();
                     $state.go('app.send_success', {
                         amount: amount,
-                        note: note,
+                        memo: memo,
                         to: to,
                         currency: currency
                     });
@@ -99,7 +102,7 @@ angular.module('generic-client.controllers.send', [])
 
         $scope.data = {};
         $scope.amount = $stateParams.amount;
-        $scope.note = $stateParams.note;
+        $scope.memo = $stateParams.memo;
         $scope.to = $stateParams.to;
         $scope.currency = $stateParams.currency;
     });
