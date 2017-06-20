@@ -169,7 +169,7 @@ angular.module('generic-client', ['ionic',
                 params: {
                     amount: null,
                     currency: null,
-                    note: null
+                    memo: null
                 }
             })
 
@@ -184,7 +184,7 @@ angular.module('generic-client', ['ionic',
                 params: {
                     amount: null,
                     currency: null,
-                    note: null,
+                    memo: null,
                     to: null
                 }
             })
@@ -200,7 +200,7 @@ angular.module('generic-client', ['ionic',
                 params: {
                     amount: null,
                     currency: null,
-                    note: null,
+                    memo: null,
                     to: null
                 }
             })
@@ -215,7 +215,7 @@ angular.module('generic-client', ['ionic',
                 },
                 params: {
                     amount: null,
-                    note: null,
+                    memo: null,
                     to: null,
                     currency: null
                 }
