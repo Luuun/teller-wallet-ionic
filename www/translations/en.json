@@ -90,7 +90,7 @@
   "REQUEST_FROM_PLACEHOLDER": "Enter name, email, mobile",
   "REQUEST_FROM_REQUIRED_MESSAGE": "Please enter a donor.",
   "SEND_TO": "Send money to",
-  "SEND_TO_PLACEHOLDER": "Enter name, email, mobile",
+  "SEND_TO_PLACEHOLDER": "Enter address, email or mobile",
   "SEND_TO_REQUIRED_MESSAGE": "Please enter a recipient.",
   "ADDRESS_LINE_1": "Address line 1",
   "ADDRESS_LINE_1_PLACEHOLDER": "e.g. East building, 3rd floor.",
