@@ -13,7 +13,7 @@ angular.module('generic-client.controllers.receive', [])
                 }
 
                 $scope.account = res.data;
-                var myAddress = 'https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=stellar:' + $scope.account.reference + '&choe=UTF-8';
+                var myAddress = 'https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl=' + $scope.account.reference + '&choe=UTF-8';
                 $scope.myAddress = myAddress;
             } else {
                 $state.go('app.username');
